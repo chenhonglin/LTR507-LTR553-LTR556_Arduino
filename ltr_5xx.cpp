@@ -248,9 +248,6 @@ void LTR5XX::als_set_measure_rate(uint8_t value){
 	ltr5xx_write(LTR5XX_ALS_MEAS_PATE_REG, &write_reg, 1);
 }
 
-#define LTR5XX_INTERRUPT_POLARITY_MASK    0x04
-#define LTR5XX_INTERRUPT_POLARITY_SHIFT   2
-
 void LTR5XX::ltr5xx_set_interrupt_polarity(uint8_t polarity){
   uint8_t read_reg,write_reg,tmp_value;
   ltr5xx_read(LTR5XX_INTERRUPT_REG, &read_reg, 1);
@@ -259,8 +256,6 @@ void LTR5XX::ltr5xx_set_interrupt_polarity(uint8_t polarity){
   write_reg = read_reg|tmp_value;
   ltr5xx_write(LTR5XX_INTERRUPT_REG, &write_reg, 1);
 }
-
-#define LTR5XX_INTERRUPT_MODE_MASK    0x03
 
 void LTR5XX::ltr5xx_set_interrupt_mode(uint8_t mode){
   uint8_t read_reg,write_reg,tmp_value;
